@@ -10,7 +10,6 @@ import logic.Government;
 class Tile {
 
     double terrain; ///How rough the terrain of the tile is
-    bool forested; ///Whether or not the tile is forested
     double temperature; ///The average temperature of the tile; varies from extreme cold to extreme heat
 
     Resource resource; ///The resource this tile provides
