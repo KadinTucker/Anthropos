@@ -1,0 +1,10 @@
+{
+	"name": "anthropos",
+	"authors": [
+		"Kadin Tucker"
+	],
+	"dependencies": {
+		"d2d": "~>1.4.13"
+	},
+	"description": "A strategy game that is more geared toward realism and control by the player",
+}
