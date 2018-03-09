@@ -30,10 +30,9 @@ class Farm : Population {
 
     /**
      * Gets the amount of food that is produced by this farm
-     * TODO
      */
     int getFoodOutput() {
-        return this.farmers;
+        return this.farmers * this.location.farmYield;
     }
 
 }
@@ -43,7 +42,6 @@ class Farm : Population {
  */
 class City : Population {
 
-    int prosperity; ///A measure of the city's general wealth
     Tile location; ///The tile on which this city is located
     Region influence; ///The surrounding region of the city which the city owns and which supplies raw materials
     Industry[] industry; ///The industries based in this city
@@ -56,11 +54,19 @@ class City : Population {
     }
 
     /**
-     * Incites growth or starvation of the city
-     * TODO
+     * Incites natural growth or starvation of the city
      */
-    void growth() {
-        
+    void naturalGrowth() {
+        this.excessFood += this.influence.getTotalFarmYield();
+        this.excessFood -= 10 * this.population;
+        while(this.excessFood < 0) {
+            this.population -= 1;
+            this.excessFood += 100;
+        }
+        while(this.excessFood / 100 > 0) {
+            this.population += 1;
+            this.excessFood -= 100;
+        }
     }
 
 }
@@ -79,6 +85,14 @@ class Region : Population {
             population += ((tile.population is null)? 0 : tile.population.getPopulation());
         }
         return population;
+    }
+
+    int getTotalFarmYield() {
+        int food;
+        foreach(tile; this.regionTiles) {
+            food += (cast(Farm) tile.population)? (cast(Farm) tile.population).getFoodOutput() : 0;
+        }
+        return food;
     }
 
 }
