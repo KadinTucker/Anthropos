@@ -22,6 +22,7 @@ interface Population {
 class Farm : Population {
 
     Tile location; ///The tile on which this farm is located
+    City influencedBy; ///The city to which this farm sends extra food
     int farmers; ///The number of farmers working this farm; can be up to 4
 
     override int getPopulation() {
@@ -32,7 +33,8 @@ class Farm : Population {
      * Gets the amount of food that is produced by this farm
      */
     int getFoodOutput() {
-        return this.farmers * this.location.farmYield;
+        return ((this.farmers * this.location.farmYield - 2 * this.location.distanceTo(this.influencedBy.location) > 0)? 
+                this.farmers * this.location.farmYield - 2 * this.location.distanceTo(this.influencedBy.location) : 0);
     }
 
 }

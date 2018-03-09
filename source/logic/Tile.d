@@ -27,4 +27,12 @@ class Tile {
         return baseFarmYield * cast(int)(1 - abs(this.temperature - 0.5) - abs(this.precipitation - 0.5));
     }
 
+    /**
+     * Gets the distance between this tile and another
+     * TODO
+     */ 
+    int distanceTo(Tile other) {
+        return 1;
+    }
+
 }
