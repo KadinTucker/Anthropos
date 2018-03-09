@@ -33,8 +33,10 @@ class Farm : Population {
      * Gets the amount of food that is produced by this farm
      */
     int getFoodOutput() {
-        return ((this.farmers * this.location.farmYield - 2 * this.location.distanceTo(this.influencedBy.location) > 0)? 
-                this.farmers * this.location.farmYield - 2 * this.location.distanceTo(this.influencedBy.location) : 0);
+        return ((this.farmers * this.location.farmYield - 2 * 
+                this.location.directDistance(this.influencedBy.location) > 0)? 
+                cast(int) (this.farmers * this.location.farmYield - 2 * 
+                this.location.directDistance(this.influencedBy.location)) : 0);
     }
 
 }
