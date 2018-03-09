@@ -11,11 +11,8 @@ class Tile {
 
     double terrain; ///How rough the terrain of the tile is
     double temperature; ///The average temperature of the tile; varies from extreme cold to extreme heat
-
     Resource resource; ///The resource this tile provides
-
     Population population; ///The population on this tile, whether city, farm, or otherwise; null if unpopulated 
-
     Government government; ///The government which controls this tile
 
     /**

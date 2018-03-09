@@ -1,5 +1,7 @@
 module logic.Population;
 
+import logic.Industry;
+import logic.Resource;
 import logic.Tile;
 
 /**
@@ -26,6 +28,14 @@ class Farm : Population {
         return this.farmers;
     }
 
+    /**
+     * Gets the amount of food that is produced by this farm
+     * TODO
+     */
+    int getFoodOutput() {
+        return this.farmers;
+    }
+
 }
 
 /**
@@ -33,8 +43,13 @@ class Farm : Population {
  */
 class City : Population {
 
+    int prosperity; ///A measure of the city's general wealth
+    Tile location; ///The tile on which this city is located
+    Region influence; ///The surrounding region of the city which the city owns and which supplies raw materials
+    Industry[] industry; ///The industries based in this city
+    int[Resource] resources; ///The resource stock of the city
     int population; ///The number of people living in the city
-    int excessFood; ///The amount of excess food available; each person needs 10 per turn
+    int excessFood; ///The amount of excess food available
 
     override int getPopulation() {
         return this.population;
