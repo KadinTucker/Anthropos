@@ -1,6 +1,7 @@
 module graphics.MainScreen;
 
 import graphics;
+import logic.Tile;
 
 /**
  * The main menu screen of the game
@@ -12,6 +13,7 @@ class MainScreen : Screen {
      */
     this(Display container) {
         super(container);
+        this.components ~= new Map(this.container, new iRectangle(0, 0, 500, 400), generateRandomWorld(21, 16));
     }
 
     /**
