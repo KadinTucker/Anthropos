@@ -67,6 +67,7 @@ class Tile {
 
 /**
  * Generates a random world
+ * All tiles have completely random climate and no resources
  */
 Tile[] generateRandomWorld(int xlen, int ylen) {
     Tile[] world;
@@ -76,4 +77,27 @@ Tile[] generateRandomWorld(int xlen, int ylen) {
         }
     }
     return world;
-} 
+}
+
+/**
+ * Populates tiles with resources
+ */
+void populateWithResources(Tile[] world) {
+    foreach(tile; world) {
+        //Oil; used as a test example
+        double oilChance = uniform(0.0, 1.0);
+        if(getProbabilityFromDecayingDistance(tile, [0, 0], 0.5, 0.05) > oilChance           //Total tundra
+                || getProbabilityFromDecayingDistance(tile, [1, 0], 0.5, 0.05) > oilChance   //Total desert
+                || getProbabilityFromDecayingDistance(tile, [1, 1], 0.5, 0.05) > oilChance) {//Total rainforest
+            tile.resource = Resource.RAWOIL;
+        }
+    }
+}
+
+/**
+ * Returns a chance that decays linearly with increasing distance from a point
+ * Can return a negative number if the point is outside of the range
+ */
+double getProbabilityFromDecayingDistance(Tile tile, double[2] optimalPoint, double decayDistance, double optimalChance) {
+    return (1 - (sqrt(pow(tile.temperature - optimalPoint[0], 2) + pow(tile.precip * tile.temperature - optimalPoint[1], 2)) / decayDistance)) * optimalChance;
+}

@@ -1,6 +1,7 @@
 module graphics.components.Map;
 
 import graphics;
+import logic.Resource;
 import logic.Tile;
 
 immutable int tileSize = 24; ///The rectangular size of each tile; temporary
@@ -37,8 +38,13 @@ class Map : Component {
         foreach(tile; this.world) {
             this.container.renderer.fillRect(new iRectangle(this._location.x + tile.location.x * tileSize, 
                     this._location.y + tile.location.y * tileSize, tileSize, tileSize),
-                    Color(cast(ubyte) (150 * (1 - tile.temperature * tile.precip)), 150,
-                    cast(ubyte) (150 * (1 - tile.temperature))));
+                    Color(cast(ubyte) (160 * (1 - tile.temperature * tile.precip)), 
+                    cast(ubyte) (160), 
+                    cast(ubyte) (100 * (1 - tile.temperature) + 60 * (1 - tile.temperature * tile.precip))));
+            if(tile.resource == Resource.RAWOIL) {
+                this.container.renderer.copy(new Texture(loadImage(Image.Oil), this.container.renderer), 
+                        new iVector(this._location.x + tile.location.x * tileSize, this._location.y + tile.location.y * tileSize));
+            }
         }
     }
 
