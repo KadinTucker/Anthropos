@@ -10,8 +10,6 @@ import logic.Tile;
  */
 abstract class Industry : Population {
 
-    Government government; ///The government overseeing this industry (not necessarily owning it)
-    City headquartered; ///The city where the industry is based
     int numWorkers; ///The number of workers working directly for this industry
     int maxWorkers; ///The working capacity for this industry
 
@@ -34,7 +32,7 @@ class Harvester : Industry {
     Tile location; ///The location from which the harvester harvests
 
     override void performAction() {
-
+        
     }
 
 }

@@ -13,7 +13,7 @@ class MainScreen : Screen {
      */
     this(Display container) {
         super(container);
-        this.components ~= new Map(this.container, new iRectangle(0, 0, 700, 700), generateRandomWorld(21, 16));
+        this.components ~= new Map(this.container, new iRectangle(0, 0, 700, 700), generateRandomWorld(30, 25));
         populateWithResources((cast(Map)this.components[0]).world); 
     }
 
@@ -36,7 +36,7 @@ class MainScreen : Screen {
      */
     void handleEvent(SDL_Event event) {
         if(event.type == SDL_MOUSEBUTTONDOWN) {
-            this.components[0] = new Map(this.container, new iRectangle(0, 0, 500, 400), generateRandomWorld(30, 20));
+            this.components[0] = new Map(this.container, new iRectangle(0, 0, 700, 700), generateRandomWorld(30, 25));
             populateWithResources((cast(Map)this.components[0]).world); 
         }
     }
