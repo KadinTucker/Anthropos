@@ -1,6 +1,11 @@
 module logic.Resource;
 
 /**
+ * TODO: Add recipes for manufacturers,
+ * and resource classifications
+ */
+
+/**
  * An enumeration of all of the resources in the game
  * TODO: Turn these into macro
  */
