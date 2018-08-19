@@ -15,21 +15,25 @@ import anthropos;
 class Population {
 
     Tile tile; ///The tile on which this population is found
-    int rural; ///The rural population; TODO: make this accessed through tile's harvester industries
-    int urban; ///The settlement's population; TODO: implement settlement class 
+    PrimaryIndustry[] rural; ///The rural population on the tile
+    Settlement urban; ///The settlement's population; TODO: implement settlement class 
 
     /**
      * Gets the rural population
      */
     @property int ruralPopulation() {
-        return this.rural;
+        int total;
+        foreach(industry; this.rural) {
+            total += industry.numEmployed;
+        }
+        return total;
     }
 
     /**
      * Gets the urban population
      */
     @property int urbanPopulation() {
-        return this.urban;
+        return this.urban.population;
     }
 
     /**

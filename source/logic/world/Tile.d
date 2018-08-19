@@ -7,7 +7,6 @@ import anthropos;
  * for representation on a map
  * TO BE DONE:
  *  - Government owning the tile
- *  - Industries active on the tile
  */
 class Tile {
 
