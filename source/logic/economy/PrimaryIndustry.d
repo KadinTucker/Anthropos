@@ -4,7 +4,7 @@ import anthropos;
 
 /**
  * A primary industry, which acquires goods from nature
- * TODO: Implement farms, plantations, and mines, maybe more inheriting this class
+ * TODO: Implement plantations, and mines, maybe more inheriting this class
  */
 abstract class PrimaryIndustry : Industry {
 

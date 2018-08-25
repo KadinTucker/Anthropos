@@ -24,5 +24,6 @@ struct Plant {
  */
 enum PlantType: Plant {
     NULL = Plant(Resource.NULL, 0.0, 0.0, 0.0, 0.0),
+    WHEAT = Plant(Resource.FOOD, 0.5, 0.3, 0.4, 0.4),
     FOREST = Plant(Resource.WOOD, 0.5, 0.8, 0.7, 0.4)
 }
