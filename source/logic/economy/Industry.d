@@ -13,6 +13,13 @@ abstract class Industry {
     Tile location; ///The tile in which the industry is based
 
     /**
+     * Constructs a new industry on the given tile
+     */
+    this(Tile location) {
+        this.location = location;
+    }
+
+    /**
      * Performs the industry's action
      * Must be defined by industry's children
      */

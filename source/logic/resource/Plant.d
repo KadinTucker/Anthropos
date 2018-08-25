@@ -15,6 +15,7 @@ struct Plant {
     double toleranceTemperature; ///The temperature range the plant can tolerate decreasingly
     double idealHumidity; ///The humidity value ideal for the plant
     double toleranceHumidity; ///The humidity range the plant can tolerate
+    int yield; ///The amount yielded per unit time at ideal conditions
 
 }
 

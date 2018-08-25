@@ -4,10 +4,31 @@ import anthropos;
 
 /**
  * A primary industry, which acquires goods from nature
- * TODO: Implement plantations, and mines, maybe more inheriting this class
+ * Can do this given a resource production template (mineral or plant)
  */
 abstract class PrimaryIndustry : Industry {
 
-    int toProduce; ///The resource to produce; for now an int until there is actually a resource to be produced
+    Resource toProduce; ///The resource to produce
+    int yield; ///The yield of resources of the industry
+    
+    /**
+     * Constructs a new primary industry on the given tile
+     * Creates the industry with a plant
+     * TODO: Make climate structure for defining plant yield, or plant specific lambda
+     */
+    this(Tile location, PlantType plant) {
+        super(location);
+        this.toProduce = plant.produced;
+    }
+
+    /**
+     * Constructs a new primary industry on the given tile
+     * Creates the industry with a mineral
+     */
+    this(Tile location, Mineral mineral) {
+        super(location);
+        this.toProduce = mineral.produced;
+        this.yield = mineral.yield;
+    }
 
 }

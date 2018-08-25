@@ -10,4 +10,12 @@ abstract class CityIndustry : Industry {
 
     Settlement based; ///The settlement in which the industry is based
 
+    /**
+     * Constructs a new city industry on the given tile and in its settlement
+     */
+    this(Tile location) {
+        super(location);
+        this.based = location.population.urban;
+    }
+
 }

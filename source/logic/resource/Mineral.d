@@ -3,10 +3,14 @@ module anthropos.logic.resource.Mineral;
 import anthropos;
 
 /**
- * A enum defining mineral resource types
- * Minerals simply yield their resource
+ * A structure which yields resources as minerals
+ * Stores the resource produced and its yield
+ * Minerals are not enumerated but generated randomly on tiles
+ * and to be found
  */
-enum Mineral {
-    NULL=Resource.NULL,
-    IRON=Resource.IRONORE
+struct Mineral {
+
+    Resource produced;
+    int yield; 
+
 }
