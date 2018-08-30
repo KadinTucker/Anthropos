@@ -6,7 +6,7 @@ import anthropos;
  * A primary industry, which acquires goods from nature
  * Can do this given a resource production template (mineral or plant)
  */
-abstract class PrimaryIndustry : Industry {
+class PrimaryIndustry : Industry {
 
     Resource toProduce; ///The resource to produce
     int yield; ///The yield of resources of the industry

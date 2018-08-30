@@ -15,4 +15,15 @@ class Settlement {
     int population; ///The number of people occupying the settlement
     CityIndustry[] industries; ///The industries based in this settlement
 
+    /**
+     * Gets the unemployed population in the settlement
+     */
+    @property int unemployed() {
+        int employed;
+        foreach(industry; this.industries) {
+            employed += industry.numEmployed;
+        }
+        return this.population - employed;
+    }
+
 }

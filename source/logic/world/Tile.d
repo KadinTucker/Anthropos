@@ -27,4 +27,16 @@ class Tile {
         }
     }
 
+    /**
+     * Checks for excess workers and tries to spawn an industry
+     * Prioritizes farms if there is not enough food,
+     * then tries to evenly distribute jobs
+     * TODO: make value of industries determinable
+     * TODO: implement other industry types
+     */
+    void spawnIndustry() {
+        //Check for each resource in stockpile for harvesters
+        //
+    }
+
 }
